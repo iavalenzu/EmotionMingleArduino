@@ -5,6 +5,7 @@
 Adafruit_NeoPixel stripBarra = Adafruit_NeoPixel(10, 4, NEO_GRB + NEO_KHZ800);
 
 //Hojas
+/*
 Adafruit_NeoPixel strip1 = Adafruit_NeoPixel(4, 12, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel strip2 = Adafruit_NeoPixel(4, 9, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel strip3 = Adafruit_NeoPixel(4, 5, NEO_GRB + NEO_KHZ800);
@@ -13,6 +14,19 @@ Adafruit_NeoPixel strip5 = Adafruit_NeoPixel(4, 7, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel strip6 = Adafruit_NeoPixel(4, 6, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel strip7 = Adafruit_NeoPixel(4, 8, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel strip8 = Adafruit_NeoPixel(4, 10, NEO_GRB + NEO_KHZ800);
+*/
+
+//Hojas
+Adafruit_NeoPixel strip1 = Adafruit_NeoPixel(4, 6, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip2 = Adafruit_NeoPixel(4, 11, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip3 = Adafruit_NeoPixel(4, 10, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip4 = Adafruit_NeoPixel(4, 12, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip5 = Adafruit_NeoPixel(4, 8, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip6 = Adafruit_NeoPixel(4, 9, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip7 = Adafruit_NeoPixel(4, 7, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip8 = Adafruit_NeoPixel(4, 5, NEO_GRB + NEO_KHZ800);
+
+
 
 
 SoftwareSerial mySerial(0, 1); // RX, TX
@@ -66,11 +80,11 @@ void scaleBar(Adafruit_NeoPixel *strip, int sad, int tired, int stressed, int an
   int ledVerdes = strip->numPixels() - ledAzules;
 
   for(int i=0; i<ledVerdes; i++){
-    strip->setPixelColor(i, strip->Color(0, 100, 0));
+    strip->setPixelColor(i, strip->Color(0, 0, 255));
   }
 
   for(int i=ledVerdes; i<strip->numPixels(); i++){
-    strip->setPixelColor(i, strip->Color(0, 0, 100));
+    strip->setPixelColor(i, strip->Color(255, 128, 0));
   }
 
   strip->show();
@@ -82,11 +96,11 @@ void scale(Adafruit_NeoPixel *strip, int value){
 
   if(value < 2){
     //Blanco no hay interaccion
-    show(strip, value, strip->Color(255, 255, 255));
+    show(strip, 4, strip->Color(255, 255, 255));
   }
   else if(value < 4){
     //Naranjo 
-    show(strip, value, strip->Color(255, 128, 0));
+    show(strip, 4, strip->Color(255, 128, 0));
   }
   else if(value < 10){
     //Amarillo
@@ -121,6 +135,7 @@ void setup()
   init(&strip6);
   init(&strip7);
   init(&strip8);
+  
   
 
 }
